@@ -1,119 +1,33 @@
+### Question: How do Generics allow you to build reusable components and functions that stay strictly typed regardless of the data structures passed in?
 
-### Question: How do the four pillars of OOP—Inheritance, Polymorphism, Abstraction, and Encapsulation—help manage logic and reduce complexity in large-scale TypeScript projects?
-
-### Ans: Four Pillars of OOP
-
-## Encapsulation -
-
-- binding data and methods inside a class, hiding internal details using private keyword
-- outside code cannot access or break internal logic
+#### What is Generics?
+- generics is ts concept. generics are one of the most powerful features in TypeScript. which we can pass type as a parameter just like function parameter
 
 ```js
-class BankAccount {
-    private balance: number = 0;
-    
-    deposit(amount: number): void {
-        this.balance += amount;
+    function identity<T>(value: T): T {
+        return value;
     }
-    
-    getBalance(): number {
-        return this.balance;
+    identity<string>("hello")
+
+    function getFirstElement<T>(arr: T[]): T {
+        return arr[0];
     }
-}
-const account = new BankAccount()
-account.balance = 500 // error, we can not access private value from outside
+    const num = getFirstElement<number>([1, 2, 3]); 
+    const str = getFirstElement<string>(["a", "b"]);
+
+    interface ApiResponse<T> {
+        data: T;
+        success: boolean;
+    }
+
+    const userResponse: ApiResponse<{ name: string }> = {
+        data: { name: "Rayhan" },
+        success: true,
+    };
 ```
 
-## Abstraction -
-
-- showing only essential features, hiding complex implementation
-- use abstract classes and interfaces
-
-```js
-abstract class PaymentProcessor {
-    abstract pay(amount: number): void;
-}
-
-class StripePayment extends PaymentProcessor {
-    async pay(amount: number): void {
-        
-    }
-}
-```
-
-## Inheritance -
-
-- child class gets properties and methods from parent class using extends keyword
-- common logic written once, reused everywhere
-
-```js
-class Component {
-    show(): void {
-        console.log("showing");
-    }
-}
-
-class Button extends Component {
-    click(): void {
-        console.log("clicked");
-    }
-}
-
-const btn = new Button();
-btn.show(); // from parent
-btn.click(); // its own
-```
-
-## Polymorphism -
-
-- same method name, different implementations in different classes
-- no need for if-else type checking
-
-```js
-interface Logger {
-    log(msg: string): void;
-}
-
-class ConsoleLogger implements Logger {
-    log(msg: string): void {
-        console.log(msg);
-    }
-}
-
-class FileLogger implements Logger {
-    log(msg: string): void {
-        fs.writeFile("log.txt", msg);
-    }
-}
-
-class UserService {
-    constructor(private logger: Logger) {} 
-}
-```
-
-## How They Work Together
-
-```js
-class Order {
-    private items: any[] = [];
-    addItem(item: any): void {
-        this.items.push(item);
-    }
-}
-
-abstract class Payment {
-    abstract pay(amount: number): void;
-}
-
-class CardPayment extends Payment {
-    pay(amount: number): void {
-        console.log("card payment");
-    }
-}
-
-class Checkout {
-    process(order: Order, payment: Payment): void { // polymorphism
-        payment.pay(order.getTotal());
-    }
-}
-```
+### Why Generic is powerfull?
+- Reusability
+- Type Safety
+- Flexible + Safe together
+- Without generics, fixed box, only one type. with generics flexible box, any type but labeled correctly
