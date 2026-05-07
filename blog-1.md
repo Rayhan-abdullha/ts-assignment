@@ -1,8 +1,9 @@
-## Question: Why is any labeled a "type safety hole," and why is unknown the safer choice for handling unpredictable data? Explain the concept of type narrowing.
+### Question: 
+Why is any labeled a "type safety hole," and why is unknown the safer choice for handling unpredictable data? Explain the concept of type narrowing.
 
 ### Ans: any vs unknown
 
-## any -
+## any
 
 - in typescript any type allows anything, if we write a variable using any type, we can store any type of data on that variable. typescript does not give any error.
 
@@ -16,7 +17,7 @@
     val = function(){}
 ```
 
-### Props
+#### Props
 - typescript can not give error in complie time
 - code can crush in runtime, if i call any wrong method or anyting
 

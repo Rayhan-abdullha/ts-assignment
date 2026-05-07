@@ -1,4 +1,5 @@
-### Question: How do Generics allow you to build reusable components and functions that stay strictly typed regardless of the data structures passed in?
+### Question:
+How do Generics allow you to build reusable components and functions that stay strictly typed regardless of the data structures passed in?
 
 #### What is Generics?
 - generics is ts concept. generics are one of the most powerful features in TypeScript. which we can pass type as a parameter just like function parameter

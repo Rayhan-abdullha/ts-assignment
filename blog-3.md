@@ -1,9 +1,10 @@
 
-### Question: How do the four pillars of OOP—Inheritance, Polymorphism, Abstraction, and Encapsulation—help manage logic and reduce complexity in large-scale TypeScript projects?
+### Question:
+How do the four pillars of OOP—inheritance, polymorphism, abstraction, and encapsulation help manage logic and reduce complexity in large scale typeScript projects?
 
 ### Ans: Four Pillars of OOP
 
-## Encapsulation -
+## Encapsulation
 
 - binding data and methods inside a class, hiding internal details using private keyword
 - outside code cannot access or break internal logic
@@ -24,7 +25,7 @@ const account = new BankAccount()
 account.balance = 500 // error, we can not access private value from outside
 ```
 
-## Abstraction -
+## Abstraction
 
 - showing only essential features, hiding complex implementation
 - use abstract classes and interfaces
@@ -41,7 +42,7 @@ class StripePayment extends PaymentProcessor {
 }
 ```
 
-## Inheritance -
+## Inheritance
 
 - child class gets properties and methods from parent class using extends keyword
 - common logic written once, reused everywhere
@@ -64,7 +65,7 @@ btn.show(); // from parent
 btn.click(); // its own
 ```
 
-## Polymorphism -
+## Polymorphism
 
 - same method name, different implementations in different classes
 - no need for if-else type checking
